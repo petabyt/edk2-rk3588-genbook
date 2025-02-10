@@ -628,7 +628,7 @@ FspiLib|Silicon/Rockchip/Library/FspiLib/FspiLib.inf
   # Display Support
   #
   Silicon/Rockchip/Drivers/Vop2Dxe/Vop2Dxe.inf
-  # Silicon/Rockchip/Library/DisplayLib/AnalogixDpLib.inf
+  Silicon/Rockchip/Library/DisplayLib/AnalogixDpLib.inf
 !if $(RK_DW_HDMI_QP_ENABLE) == TRUE
   Silicon/Rockchip/Library/DisplayLib/DwHdmiQpLib.inf
 !endif

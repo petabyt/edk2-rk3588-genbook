@@ -351,7 +351,40 @@ PlatformEarlyInit (
   VOID
   )
 {
+  // DEBUG_WARN
+  DEBUG ((DEBUG_INIT, "PlatformEarlyInit called\n"));
   // Configure various things specific to this platform
 
-  GpioPinSetFunction (1, GPIO_PIN_PD5, 0); // jdet
+  //GpioPinSetFunction (1, GPIO_PIN_PD5, 0); // jdet
+
+  GpioPinSetDirection (0, GPIO_PIN_PC4, GPIO_PIN_OUTPUT);
+  GpioPinWrite (0, GPIO_PIN_PC4, TRUE); // lcd pwr on
+  GpioPinSetDirection (4, GPIO_PIN_PA3, GPIO_PIN_OUTPUT);
+  GpioPinWrite (4, GPIO_PIN_PA3, TRUE); // blen
+  GpioPinSetDirection (4, GPIO_PIN_PC1, GPIO_PIN_OUTPUT);
+  GpioPinWrite (4, GPIO_PIN_PC1, TRUE); // backlight on (TODO: Set to pwm?)
+  GpioPinSetDirection (0, GPIO_PIN_PA0, GPIO_PIN_OUTPUT);
+  GpioPinWrite (0, GPIO_PIN_PA0, TRUE); // typec5v_pwren
+  GpioPinSetDirection (1, GPIO_PIN_PD5, GPIO_PIN_OUTPUT);
+  GpioPinWrite (1, GPIO_PIN_PD5, TRUE); // vcc5v0_host1_en
+  GpioPinSetDirection (1, GPIO_PIN_PA7, GPIO_PIN_OUTPUT);
+  GpioPinWrite (1, GPIO_PIN_PA7, TRUE); // keyboard_en
+}
+
+VOID
+EFIAPI
+EnableBacklight (
+  IN BOOLEAN Enable
+)
+{
+  // ...
+}
+
+VOID
+EFIAPI
+EnablePWM (
+  IN BOOLEAN Enable
+)
+{
+  // ...
 }

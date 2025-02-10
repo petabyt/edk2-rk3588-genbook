@@ -60,7 +60,7 @@
   gRockchipTokenSpaceGuid.PcdPlatformVendorName|"Cool-Pi"
   gRockchipTokenSpaceGuid.PcdFamilyName|"CM5 Module"
   gRockchipTokenSpaceGuid.PcdProductUrl|"https://cool-pi.org"
-  gRockchipTokenSpaceGuid.PcdDeviceTreeName|"rk3588s-orangepi-5"
+  gRockchipTokenSpaceGuid.PcdDeviceTreeName|"rk3588-cpcm5-notebook-v20"
 
   # I2C
   gRockchipTokenSpaceGuid.PcdI2cSlaveAddresses|{ 0x42, 0x43, 0x51, 0x10 }
@@ -71,6 +71,12 @@
   gRockchipTokenSpaceGuid.PcdRk860xRegulatorTags|{ $(SCMI_CLK_CPUB01), $(SCMI_CLK_CPUB23) }
   gPcf8563RealTimeClockLibTokenSpaceGuid.PcdI2cSlaveAddress|0x51
   gRockchipTokenSpaceGuid.PcdRtc8563Bus|0x6
+
+  # edp  
+  gRockchipTokenSpaceGuid.PcdLcdPixelFormat|0x00000001
+  gRockchipTokenSpaceGuid.PcdEdpId|0x00000001
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0x780
+  gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0x438
 
   #
   # PCIe/SATA/USB Combo PIPE PHY support flags and default values
