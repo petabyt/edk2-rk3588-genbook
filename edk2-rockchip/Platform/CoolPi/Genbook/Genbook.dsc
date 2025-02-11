@@ -37,7 +37,7 @@
   #
   # RK3588S-based platform
   #
-!include Silicon/Rockchip/RK3588/RK3588SPlatform.dsc.inc
+!include Silicon/Rockchip/RK3588/RK3588Platform.dsc.inc
 
 ################################################################################
 #
