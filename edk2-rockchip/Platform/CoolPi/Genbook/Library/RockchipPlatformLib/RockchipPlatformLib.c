@@ -336,10 +336,16 @@ PlatformGetDtbFileGuid (
     // DeviceTree/Vendor.inf
     0xd58b4028, 0x43d8, 0x4e97, { 0x87, 0xd4, 0x4e, 0x37, 0x16, 0x13, 0x65, 0x80 }
   };
+  STATIC CONST EFI_GUID  MainlineDtbFileGuid = {
+    // DeviceTree/Mainline.inf
+    0x84492e97, 0xa10f, 0x49a7, { 0x85, 0xe9, 0x02, 0x5d, 0x19, 0x66, 0xb3, 0x43 }
+  };  
 
   switch (CompatMode) {
     case FDT_COMPAT_MODE_VENDOR:
       return &VendorDtbFileGuid;
+    case FDT_COMPAT_MODE_MAINLINE:
+      return &MainlineDtbFileGuid;
   }
 
   return NULL;
@@ -351,22 +357,30 @@ PlatformEarlyInit (
   VOID
   )
 {
-  // DEBUG_WARN
   DEBUG ((DEBUG_INIT, "PlatformEarlyInit called\n"));
   // Configure various things specific to this platform
 
-  //GpioPinSetFunction (1, GPIO_PIN_PD5, 0); // jdet
+//  GpioPinSetFunction (1, GPIO_PIN_PD5, 0); // jdet
 
   GpioPinSetDirection (0, GPIO_PIN_PC4, GPIO_PIN_OUTPUT);
   GpioPinWrite (0, GPIO_PIN_PC4, TRUE); // lcd pwr on
+
   GpioPinSetDirection (4, GPIO_PIN_PA3, GPIO_PIN_OUTPUT);
   GpioPinWrite (4, GPIO_PIN_PA3, TRUE); // blen
+
   GpioPinSetDirection (4, GPIO_PIN_PC1, GPIO_PIN_OUTPUT);
   GpioPinWrite (4, GPIO_PIN_PC1, TRUE); // backlight on (TODO: Set to pwm?)
+
   GpioPinSetDirection (0, GPIO_PIN_PA0, GPIO_PIN_OUTPUT);
   GpioPinWrite (0, GPIO_PIN_PA0, TRUE); // typec5v_pwren
+
   GpioPinSetDirection (1, GPIO_PIN_PD5, GPIO_PIN_OUTPUT);
   GpioPinWrite (1, GPIO_PIN_PD5, TRUE); // vcc5v0_host1_en
+
+  // This needs to be pulled up (?)
+  GpioPinSetDirection (0, GPIO_PIN_PD5, GPIO_PIN_OUTPUT);
+  GpioPinWrite (0, GPIO_PIN_PD5, TRUE); // usbc0_int
+
   GpioPinSetDirection (1, GPIO_PIN_PA7, GPIO_PIN_OUTPUT);
   GpioPinWrite (1, GPIO_PIN_PA7, TRUE); // keyboard_en
 }
