@@ -34,6 +34,9 @@
   #
   DEFINE RK_RTC8563_ENABLE = TRUE
 
+  # Enable edp driver
+  DEFINE RK_ANALOGIX_DP_ENABLE = TRUE
+
   #
   # RK3588S-based platform
   #
