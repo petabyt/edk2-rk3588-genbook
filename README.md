@@ -69,7 +69,7 @@ Note that this list is subject to change at any time as devices gain better supp
 ### Mainline compatibility mode
 | OS | Version | Tested/supported hardware | Notes |
 | --- | --- | --- | --- |
-| Generic upstream Linux | Kernel 6.10 or newer.<br> Tested with:<br> - Ubuntu 24.10<br> - Fedora Workstation 41<br> - Fedora Workstation Rawhide | Platform and kernel version dependent, see [Collabora's RK3588 upstream status](https://gitlab.collabora.com/hardware-enablement/rockchip-3588/notes-for-rockchip-3588/-/blob/main/mainline-status.md). | * Kernels older than 6.13 lack HDMI output. To work around this, see: [Device Tree configuration](#device-tree-configuration). |
+| Generic upstream Linux | Kernel 6.10 or newer.<br> Tested with:<br> - Ubuntu 24.10<br> - Fedora Workstation 41<br> - Fedora Workstation Rawhide | Platform and kernel version dependent, see [Collabora's RK3588 upstream status](https://gitlab.collabora.com/hardware-enablement/rockchip-3588/notes-for-rockchip-3588/-/blob/main/mainline-status.md). | * Kernels older than 6.15 lack display output. To work around this, see: [Device Tree configuration](#device-tree-configuration). |
 
 > [!NOTE]
 > Mainline support is only available on [Platinum](#platinum) platforms.
@@ -120,7 +120,7 @@ If your platform is not yet supported, using an image meant for another device i
 ## 3. Flash the firmware
 UEFI can be flashed to either an SPI NOR flash, SD card or eMMC module:
 * For removable SD or eMMC (easiest), you can simply use balenaEtcher, RPi Imager or dd.
-* For SPI NOR or soldered eMMC, instructions can be found at: <https://wiki.radxa.com/Rock5/install/spi>.
+* For SPI NOR or soldered eMMC, instructions can be found at: <https://docs.radxa.com/en/rock5/lowlevel-development/bootloader_spi_flash>.
 
   In short, you can flash the image from Linux booted on the device or by using RKDevTool on another computer. The latter requires entering Maskrom mode on the device. The way to do this slightly varies across platforms, refer to your vendor documentation.
 
@@ -171,7 +171,7 @@ The firmware provides two compatibility modes:
 [Platinum](#platinum) platforms will have the `Mainline` option enabled by default, while [Bronze](#bronze) ones will fall back to `Vendor`.
 
 > [!TIP]
-> In `Mainline` mode with generic Linux kernels older than 6.13, the HDMI output will not be usable. To use the UEFI-initialized display instead, go to `Device Manager`->`Rockchip Platform Configuration`->`ACPI / Device Tree` and enable `Force UEFI GOP Display`. Note that GPU acceleration cannot work in this mode.
+> In `Mainline` mode with generic Linux kernels older than 6.15, the HDMI output will not be usable. To use the UEFI-initialized display instead, go to `Device Manager`->`Rockchip Platform Configuration`->`ACPI / Device Tree` and enable `Force UEFI GOP Display`. Note that GPU acceleration cannot work in this mode.
 
 ### Custom Device Tree Blob (DTB) override and overlays
 It is also possible to provide a custom DTB and overlays. To enable this, go to `Device Manager`->`Rockchip Platform Configuration`->`ACPI / Device Tree` and set `Support DTB override & overlays` to `Enabled`.
