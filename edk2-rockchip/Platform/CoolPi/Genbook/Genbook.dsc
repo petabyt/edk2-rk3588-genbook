@@ -37,8 +37,11 @@
   # Enable edp driver
   DEFINE RK_ANALOGIX_DP_ENABLE = TRUE
 
+  # SPI NOR flash is a pain in the neck to erase on this platform
+  RK_NOR_FLASH_ENABLE = FALSE
+
   #
-  # RK3588S-based platform
+  # RK3588-based platform
   #
 !include Silicon/Rockchip/RK3588/RK3588Platform.dsc.inc
 
@@ -110,6 +113,15 @@
   # On-Board fan output
   #
   gRK3588TokenSpaceGuid.PcdHasOnBoardFanOutput|FALSE
+
+  #
+  # Display support flags and default values
+  #
+  gRK3588TokenSpaceGuid.PcdDisplayConnectors|{CODE({
+    VOP_OUTPUT_IF_EDP0,
+    VOP_OUTPUT_IF_EDP1
+  })}
+
 
 ################################################################################
 #

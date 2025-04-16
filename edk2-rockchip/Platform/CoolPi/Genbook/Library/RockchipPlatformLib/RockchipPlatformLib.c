@@ -387,11 +387,20 @@ PlatformEarlyInit (
 
 VOID
 EFIAPI
-EnableBacklight (
-  IN BOOLEAN Enable
-)
-{
+EdpEnableBacklight (
+  IN UINT32   Id,
+  IN BOOLEAN  Enable
+  ) {
   // ...
+}
+
+VOID
+EFIAPI
+HdmiTxIomux (
+  IN UINT32  Id
+  )
+{
+  
 }
 
 VOID
