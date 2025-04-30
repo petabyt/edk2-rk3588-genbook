@@ -99,9 +99,6 @@
 !ifndef RK_DW_HDMI_QP_ENABLE
   DEFINE RK_DW_HDMI_QP_ENABLE       = TRUE
 !endif
-!ifndef RK_ANALOGIX_DP_ENABLE
-  DEFINE RK_ANALOGIX_DP_ENABLE       = FALSE
-!endif
 
   #
   # RK3588-specific flags

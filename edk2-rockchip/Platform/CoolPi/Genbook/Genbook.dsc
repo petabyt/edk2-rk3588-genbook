@@ -78,9 +78,6 @@
   gPcf8563RealTimeClockLibTokenSpaceGuid.PcdI2cSlaveAddress|0x51
   gRockchipTokenSpaceGuid.PcdRtc8563Bus|0x6
 
-  # edp  
-  gRockchipTokenSpaceGuid.PcdLcdPixelFormat|0x00000001
-  gRockchipTokenSpaceGuid.PcdEdpId|0x00000001
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|0x780
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|0x438
 
@@ -118,7 +115,6 @@
   # Display support flags and default values
   #
   gRK3588TokenSpaceGuid.PcdDisplayConnectors|{CODE({
-    VOP_OUTPUT_IF_EDP0,
     VOP_OUTPUT_IF_EDP1
   })}
 
