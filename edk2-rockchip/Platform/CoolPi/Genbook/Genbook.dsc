@@ -117,6 +117,30 @@
   gRK3588TokenSpaceGuid.PcdDisplayConnectors|{CODE({
     VOP_OUTPUT_IF_EDP1
   })}
+  # Preset may not be necessary?
+  gRK3588TokenSpaceGuid.PcdDisplayModePresetDefault|{CODE({
+    DISPLAY_MODE_1920_1080_60
+  })}
+  gRK3588TokenSpaceGuid.PcdDisplayModeCustomDefault|{CODE({
+    DISPLAY_MODE_1920_1080_60
+  })}
+  gRK3588TokenSpaceGuid.PcdDisplayModeCustomDefault|{CODE({
+    .Vic         = 16,
+    .OscFreq     = 148500,
+    .HActive     = 1920,
+    .HFrontPorch = 88,
+    .HSync       = 44,
+    .HBackPorch  = 148,
+    .HSyncActive = 1,
+    .VActive     = 1080,
+    .VFrontPorch = 4,
+    .VSync       = 5,
+    .VBackPorch  = 36,
+    .VSyncActive = 1,
+  })}
+  gRK3588TokenSpaceGuid.PcdDisplayForceOutputDefault|TRUE
+  gRK3588TokenSpaceGuid.PcdDisplayDuplicateOutputDefault|FALSE
+  gRK3588TokenSpaceGuid.PcdDisplayRotationDefault|0
 
 
 ################################################################################

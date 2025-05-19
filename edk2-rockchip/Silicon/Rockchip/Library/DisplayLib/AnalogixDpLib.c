@@ -1380,11 +1380,11 @@ AnalogixDpConnectorEnable (
   AnalogixDpSetVideoFormat (Dp, &ConnectorState->DisplayMode);
   AnalogixDpConfigVideo (Dp);
 
- #if REG_DUMP
+#if REG_DUMP
   DumpDpRegisters (Dp);
   DumpHdptxPhyRegisters (Dp);
- #endif
-  FreePool (Dp);
+#endif
+  //FreePool (Dp);
   return 0;
 }
 
